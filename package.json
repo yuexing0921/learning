@@ -1,0 +1,38 @@
+{
+  "name": "learning",
+  "version": "1.0.0",
+  "description": "learning ",
+  "main": "",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run format",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "format": "prettier --write"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "husky": "^0.15.0-rc.13",
+    "lint-staged": "^7.0.4",
+    "prettier": "^1.11.1"
+  }
+}

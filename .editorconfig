@@ -1,0 +1,32 @@
+
+# http://editorconfig.org
+root = true
+
+# 参考了 react 源码配置: https://github.com/facebook/react/blob/master/.editorconfig
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+max_line_length = 80
+
+[*.md]
+max_line_length = 0
+trim_trailing_whitespace = false
+
+[COMMIT_EDITMSG]
+max_line_length = 0
+
+# Tab indentation (no size specified)
+[Makefile]
+indent_style = tab
+
+# Matches the exact files either package.json or .travis.yml
+[{package.json,.travis.yml, *.yml, *.yaml}]
+indent_style = space
+indent_size = 2
