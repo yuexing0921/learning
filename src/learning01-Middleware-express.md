@@ -4,7 +4,7 @@
 
 今天主要来学习下express的中间件（[Middleware](http://expressjs.com/en/guide/using-middleware.html)）
 
-#### Middleware的功能
+#### 一、Middleware的功能
 主要是对res和req进行响应或者修改，比如：
 - 修改请求
 - 拦截请求
@@ -18,14 +18,14 @@
 
 要把express理解透，不懂它的中间件是不可能搞懂的。
 
-#### Middleware的种类
+#### 二、Middleware的种类
 express中间件官方给出的是总共有以下五种中间件
 - 应用级别 =》镶嵌在应用级的中间件，可复用性很低
 - 路由级别 =》大体上和应用级别是一样的，只不过通过router对象来加载
 - 错误处理级别 =》 和以上两个区别在于，多了一个参数，第一个参数变成了err对象，其他都是一样的
 - 内置级别 =》4.x版本只保留了static这个模块，其他的中间件模块都单独打包成一个模块，独立出去发展了,从4.16增加了json、urlencodeed这两个模块
 - 第三方 =》 3.x版本的bodyParser、compress、cookieSession等等这些都单独独立成一个模块了
-##### 应用级
+##### 1. 应用级
 应用级中间件绑定到 app 对象 使用 app.use() 和 app.METHOD()
 ```
 const app = express()
@@ -51,7 +51,7 @@ app.get('/user/:id', function (req, res, next) {
 });
 ```
 
-##### 路由级
+##### 2. 路由级
 
 ```
 const router = express.Router();
@@ -81,7 +81,7 @@ app.use('/router', router);
 
 ```
 
-##### 错误处理级别
+##### 3. 错误处理级别
 ```
 // 这种错误处理收集，一定要放在你需要处理请求的后面，因为expres是按照加载顺序来的，如果你定义的错误中间件，放到最前才加载，是无效的
 app.use(function(err, req, res, next) {
@@ -90,13 +90,13 @@ app.use(function(err, req, res, next) {
 });
 ```
 
-##### 内置级别
+##### 4. 内置级别
 
 1. [express.json](http://expressjs.com/en/4x/api.html#express.json)
 2. [express.static](http://expressjs.com/en/4x/api.html#express.static)
 3. [express.urlencoded](http://expressjs.com/en/4x/api.html#express.urlencoded)
 
-##### 第三方中间件
+##### 5. 第三方中间件
 单独独立的模块参照[列表](https://github.com/senchalabs/connect#middleware)
 
 如果仔细阅读【应用级】那部分的代码，写一个简单的第三方中间件，是很简单的事情
